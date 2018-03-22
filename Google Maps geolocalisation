@@ -1,0 +1,32 @@
+<div class="row">
+     <div id="googleMap"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?&language=fr&key=AIzaSyB9v_LVILYi16Ejhv0jKuAEl6Ar797SK04"></script>
+        <script src="inc/js/annonce.js"></script>
+        
+        <script>
+            var adresse= \''.$annonce['ville'].'\';
+            TrouverADR(adresse);
+       </script>
+
+</div>
+   if (status == google.maps.GeocoderStatus.OK) {
+                var strposition = results[0].geometry.location.toString();
+                var latlng = new google.maps.LatLng(strposition);
+                var mapOptions = {
+                        zoom      : 15,
+                        center    : latlng,
+                        scrollwheel:false,
+                        zoomControl: true,
+                        scaleControl: true,
+                        streetViewControl: true
+                        }
+
+                map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                                    map: map,
+                                    position: results[0].geometry.location
+                                });
+
+            });
+        }
