@@ -7,7 +7,6 @@
             var adresse= \''.$annonce['ville'].'\';
             TrouverADR(adresse);
        </script>
-
 </div>
    if (status == google.maps.GeocoderStatus.OK) {
                 var strposition = results[0].geometry.location.toString();
